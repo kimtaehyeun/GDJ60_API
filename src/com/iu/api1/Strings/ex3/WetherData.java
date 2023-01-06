@@ -9,17 +9,17 @@ public class WetherData {
 	}
 	
 	public WetherDTO[] init() {
-		String [] result = this.data.split(",");
+		String [] result = this.data.split(",");//16
 		
-		WetherDTO[] wethers = new WetherDTO[result.length/4];
-		
+		WetherDTO[] wethers = new WetherDTO[result.length/4];//4
+		//0~15
 		int idx = 0;
-		for(int i = 0; i<result.length;i=i+4) {
+		for(int i = 0; i<result.length;i=i+4) {//0~15	0,4,8
 			WetherDTO in = new WetherDTO();
-			in.setCity(result[i]);
-			in.setGion(result[i+1]);
-			in.setStatus(result[i+2]);
-			in.setMise(result[i+3]);
+			in.setCity(result[i]);//	0		4
+			in.setGion(result[i+1]);//	1		5
+			in.setStatus(result[i+2]);//2		6
+			in.setMise(result[i+3]);//	3		7
 			
 			wethers[idx]=in;
 			idx++;

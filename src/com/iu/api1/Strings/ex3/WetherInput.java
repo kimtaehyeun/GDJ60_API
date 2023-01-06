@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class WetherInput {
 
-	public void Wethersearch() {
-		WetherData wetherData= new WetherData();
-		WetherDTO [] datas = wetherData.init();
+	public void Wethersearch(WetherDTO [] datas) {
+		
 		WetherView wetherView = new WetherView();
 		Scanner sc = new Scanner(System.in);
 		System.out.print("도시 입력 : ");
@@ -19,18 +18,15 @@ public class WetherInput {
 			}
 		}
 		if(flag==true) {
-			wetherView.WetherOne(null);
+			System.out.println("잘못 입력하였습니다.");
 		}
 	}
 
 
 	public WetherDTO[] Wetheradd(WetherDTO [] datas) {
-		WetherData wetherData= new WetherData();
+		
 		WetherDTO  data = new WetherDTO();
-
 		Scanner sc = new Scanner(System.in);
-
-
 		WetherDTO []adddatas = new WetherDTO[datas.length+1];
 
 		for(int i= 0; i<datas.length;i++) {
@@ -45,44 +41,30 @@ public class WetherInput {
 		System.out.print("추가할 미세먼지농도 입력 : ");
 		data.setMise(sc.next());
 		adddatas[datas.length]=data;
-		for(int i =0; i<adddatas.length;i++) {
-			System.out.println(adddatas[i].getCity());
-			System.out.println(adddatas[i].getGion());
-			System.out.println(adddatas[i].getStatus());
-			System.out.println(adddatas[i].getMise());
-
-		}
-
-
+		
 		return adddatas;
 
 	}
 
 	public WetherDTO[] Wetherremove(WetherDTO [] datas) {
-		WetherData wetherData= new WetherData();
-		WetherDTO  data = new WetherDTO();
-		WetherDTO [] removedata = new WetherDTO[datas.length];
-		
+		WetherDTO [] removedata = new WetherDTO[datas.length-1];//3
+					//2,1,0
 		Scanner sc = new Scanner(System.in);
 		System.out.print("삭제할 도시 : ");
-		String remove = sc.next();
+		String remove = sc.next().toUpperCase();
 		int x=0;
+		
 		for(int i =0; i<datas.length; i++) {
-			if(remove.toLowerCase().equals(datas[i].getCity())) {
-				
+			
+			if(remove.equals(datas[i].getCity().toUpperCase())) {
+				System.out.println("삭제되었습니다.");
 			}
 			else {
 				removedata[x]=datas[i];
 				x++;
 			}
 		}
-		for(int i = 0; i<removedata.length-1; i++) {
-			System.out.println(removedata[i].getCity());
-			System.out.println(removedata[i].getGion());
-			System.out.println(removedata[i].getStatus());
-			System.out.println(removedata[i].getMise());
-			
-		}
+		
 		
 		
 			return removedata;

@@ -14,28 +14,32 @@ public class WetherController {
 		
 		while(sw) {
 			System.out.print("번호 입력 : ");
+			System.out.println("1. 초기화\t2. 전국날씨정보\t3.지역날씨검색\t4.지역날씨추가\t5.지역날씨삭제\t6.종료");
 			int a = sc.nextInt();
 			switch(a) {
 			
 			case 1 : 
 				System.out.println("초기화");
+				datas = wetherData.init();
 				break;
 			case 2 : 
 				System.out.println("전국 날씨 정보");
-				wetherview.WetherAll();
+				wetherview.WetherAll(datas);
 				break;
 			case 3 : 
 				System.out.println("지역 날씨 검색");
-				wetherInput.Wethersearch();
+				wetherInput.Wethersearch(datas);
 				break;
 			case 4 : 
 				System.out.println("지역날씨 추가");
-				wetherInput.Wetheradd(datas);
+				datas=wetherInput.Wetheradd(datas);
 				break;
 			case 5 : 
 				System.out.println("지역날씨 삭제");
-				wetherInput.Wetherremove(datas);
+				datas=wetherInput.Wetherremove(datas);
 				break;
+			default : 
+				sw=false;
 				
 			
 			}
