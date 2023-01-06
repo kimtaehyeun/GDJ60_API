@@ -1,4 +1,5 @@
 package com.iu.api1.Strings;
+//선생님 버전
 
 import java.util.Scanner;
 
@@ -9,19 +10,10 @@ public class StringEx2 {
 		String[] names = {"jpg","jpeg","gif","png"};
 		System.out.println("파일명을 입력");
 		String fileName = sc.next();//sf.sd.dsf.df
-
-		int idx= fileName.lastIndexOf(".");
-		int flag =0;
-		for(int i=0; i<names.length;i++) {
-			if(fileName.substring(idx+1).equals(names[i])) {
-				System.out.println(fileName);
-				flag =1;
-			}
-		}
-		if(flag==0) {
-			System.out.println("그림이 아닙니다.");
-		}
-		
+		int idx = fileName.lastIndexOf(".");
+		System.out.println(idx);
+		String result  = fileName.substring(idx+1);
+		System.out.println(result);
 			
 
 	}
