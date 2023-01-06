@@ -18,6 +18,8 @@ public class StringEx2 {
 				flag =1;
 			}
 		}
+		
+		
 		if(flag==0) {
 			System.out.println("그림이 아닙니다.");
 		}
