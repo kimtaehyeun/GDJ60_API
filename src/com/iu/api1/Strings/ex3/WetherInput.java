@@ -29,9 +29,7 @@ public class WetherInput {
 		Scanner sc = new Scanner(System.in);
 		WetherDTO []adddatas = new WetherDTO[datas.length+1];
 
-		for(int i= 0; i<datas.length;i++) {
-			adddatas[i]=datas[i];
-		}
+		
 		System.out.print("추가할 도시 입력 : ");
 		data.setCity(sc.next().toUpperCase());
 		System.out.print("추가할 온도 입력 : ");
@@ -40,6 +38,9 @@ public class WetherInput {
 		data.setStatus(sc.next());
 		System.out.print("추가할 미세먼지농도 입력 : ");
 		data.setMise(sc.next());
+		for(int i= 0; i<datas.length;i++) {
+			adddatas[i]=datas[i];
+		}
 		adddatas[datas.length]=data;
 		
 		return adddatas;
