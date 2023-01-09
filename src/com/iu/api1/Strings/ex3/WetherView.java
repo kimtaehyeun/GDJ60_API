@@ -19,6 +19,7 @@ public class WetherView {
 	
 		
 	}
+	
 	public void WetherAll(WetherDTO [] datas) {
 		for(int i = 0; i<datas.length;i++) {
 			
