@@ -6,7 +6,7 @@ public class JuminCheck2 {
 	//991022-1234567
 	//주민번호 맨 끝자리는 체크용 번호
 	//	9		9	1	0	2	2	-	1	2	3	4	5	6	7
-	
+
 	//X 2		3	4	5	6	7		8	9	2	3	4	5
 	//	18		27	4	0	12	14		8	18	6	12	20	30
 	//	합이 122 합을 11로 나누어서 나머지 구함
@@ -21,10 +21,10 @@ public class JuminCheck2 {
 	public void jumincheck(String [] jumin) {
 		int last = Integer.parseInt(jumin[1].substring(6));
 		jumin[1]=jumin[1].substring(0,6);
-		
+
 		String [] first = jumin[0].split("");
 		String [] second =jumin[1].split("");
-		Integer sum = 0;
+		int sum = 0;
 		int total = 0;
 		int j = 2;
 		for(int i=0; i<first.length;i++) {
@@ -37,9 +37,8 @@ public class JuminCheck2 {
 			sum+=Integer.parseInt(second[i])*j;
 			j++;
 		}
-		sum = sum%11;//11로나눈 나머지
-		total = 11-sum;
-	
+		total = 11-sum%11;
+
 		if(total/10==1) {//두자리면
 			if(total%10==last) {
 				System.out.println("같다");
@@ -53,7 +52,43 @@ public class JuminCheck2 {
 			else
 				System.out.println("다르다");
 		}
-		
-		
+
+
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+//	public void check(String jumin) {
+//
+//		int num=2;
+//		int sum = 0;
+//		for(int i=0; i<jumin.length()-1;i++) {
+//			if(i ==6) {
+//				continue;
+//			}
+//
+//			//sum=sum+Integer.parseInt(jumin.substring(i,i+1))*num;
+//			sum += Integer.parseInt(String.valueOf(jumin.charAt(i)))*num;
+//			num++;
+//			if(num ==10) {
+//				num =2;
+//			}
+//		}
+//
+//		int result =11 -sum%11;
+//
+//		if(result >9) {
+//			result =result%10;
+//		}
+//		int flag =Integer.parseInt(jumin.substring(13));
+//
+//		if(result == flag) {
+//			System.out.println("정상");
+//		}else {
+//			System.out.println("비정상");
+//		}
+//
+//
+//
+//	}
+
 }
