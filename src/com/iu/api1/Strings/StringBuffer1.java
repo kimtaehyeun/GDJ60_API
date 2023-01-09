@@ -21,6 +21,7 @@ public class StringBuffer1 {
 		//static이 붙은 애들은 클래스.~~~라고쓴다.
 		
 		System.out.println(str);
+		
 	}	
 
 }
