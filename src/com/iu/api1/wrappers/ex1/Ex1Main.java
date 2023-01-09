@@ -13,9 +13,9 @@ public class Ex1Main {
 		String [] jumin = juminnumber.split("-");
 //		jumincheck.check1(jumin);
 //		jumincheck.check2(jumin);
-//		juminCheck2.jumincheck(jumin);//
+		juminCheck2.jumincheck(jumin);
 //		
-		juminCheck2.check(juminnumber);
+//		juminCheck2.check(juminnumber);
 	}
 
 }
