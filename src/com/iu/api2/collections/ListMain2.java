@@ -1,4 +1,4 @@
-package com.iu.api1.wrappers.ex1;
+package com.iu.api2.collections;
 
 import java.util.ArrayList;
 import java.util.Scanner;
