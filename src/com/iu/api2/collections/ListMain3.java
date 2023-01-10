@@ -9,8 +9,10 @@ public class ListMain3 {
 		//Geneic : Type의 안정성
 		//E : 변수명
 		//E = Integer
-		ArrayList<Integer> ar = new ArrayList<>();
+		ArrayList<Integer> ar = new ArrayList<>();//<안에 레퍼런스만나옴>
 		ar.add(1);
+		//※DTO : Data transfer object - 데이터 교환을 위해 사용하는 객체
+		
 		int num = ar.get(0);
 		
 		ArrayList<WetherDTO> ar2 = new ArrayList<>();
