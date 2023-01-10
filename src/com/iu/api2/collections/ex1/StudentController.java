@@ -1,12 +1,16 @@
 package com.iu.api2.collections.ex1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentController {
 
 	public void Start() {
 		Scanner sc = new Scanner(System.in);
-		StudentDAO studentDAO = new StudentDAO();
+		
+		StudentDAO st = new StudentDAO();
+		ArrayList<StudentDTO> sutdents = st.init();
+		StudentView sv = new StudentView();
 		boolean start = true;
 		
 		while(start) {
@@ -21,11 +25,12 @@ public class StudentController {
 			switch (num) {
 			case 1: {
 				System.out.println("1. 학생 정보 초기화");
-					studentDAO.init();
+					stud
 				break;
 			}
 			case 2: {
 				System.out.println("2. 학생 정보  전체 조회");
+				
 				break;
 			}
 			case 3: {
