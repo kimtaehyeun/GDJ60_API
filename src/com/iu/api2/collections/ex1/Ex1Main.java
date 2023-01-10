@@ -10,9 +10,11 @@ public class Ex1Main {
 		// 4. 학생 정보 추가
 		// 5. 학생 정보 삭제 (이름)
 		// 6. 프로그램 종료
-		StudentController start = new StudentController();
-		start.Start();
-		
+//		StudentController start = new StudentController();
+//		start.Start();
+//		
+		StudentDAO sd = new StudentDAO();
+		sd.init();
 	}
 
 }

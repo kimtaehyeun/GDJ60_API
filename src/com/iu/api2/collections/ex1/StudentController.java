@@ -25,7 +25,7 @@ public class StudentController {
 			switch (num) {
 			case 1: {
 				System.out.println("1. 학생 정보 초기화");
-					stud
+					set. = st.init();
 				break;
 			}
 			case 2: {
