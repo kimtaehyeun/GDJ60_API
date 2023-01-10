@@ -18,7 +18,7 @@ public class StringToken1 {
 //			nationDTO.setCity(n[++i]);
 //		}//스플릿을 쓰는경우 배열을 계산하여야 해서 부담스러움
 //		스플릿은 독립적으로 하나의 데이터당 하나씩 독립적으로 작용할때
-//		hamoretokens는 여러개의 데이터가 한개로 묶일때
+//		hasmoretokens는 여러개의 데이터가 한개로 묶일때
 		while(st.hasMoreTokens()) {
 			NationDTO nationDTO = new NationDTO();
 			
