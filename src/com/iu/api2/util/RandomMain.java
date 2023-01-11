@@ -13,6 +13,12 @@ public class RandomMain {
 
 		//1000원 로또 구매 1-45
 		//로또 뽑는데 번호 총 6개 중복제거
+		
+		
+		
+		
+		
+		
 		HashSet<Integer>lotto= new HashSet<>();
 		while(lotto.size()<5) {
 			lotto.add(random.nextInt(10)+1);
@@ -20,7 +26,28 @@ public class RandomMain {
 		System.out.println("set : "+lotto);
 
 		ArrayList<Integer> rotto = new ArrayList<>();
-		ArrayList<Integer> ar = new ArrayList<>();
+//		ArrayList<Integer> ar = new ArrayList<>();
+		ArrayList<Integer> teacher = new ArrayList<>();
+		
+		while(teacher.size()<6) {
+			int n = random.nextInt(10);
+			boolean check = true;
+			for(int i = 0; i<teacher.size(); i++) {
+				if(n==teacher.get(i)) {
+					check =false;
+					break;
+				}
+			}
+			if(check) {
+				teacher.add(n);
+			}
+			
+		}
+		System.out.println(teacher);
+		
+		
+		
+		
 		for(int i =0; i<5; i++) {
 			rotto.add(random.nextInt(10)+1);
 		}
@@ -62,18 +89,19 @@ public class RandomMain {
 //			System.out.println("array : "+rotto);
 //			//		System.out.println(num);
 //		}
-		for(int i=1; i<7; i++) {
-			int num1 = random.nextInt(6)+1;
-			ar.add(num1);
-			for(int k=0; k<i-1;k++) {
-				
-				if(num1 == ar.get(k)) {
-					ar.remove(k);
-					i--;
-					break;
-				}
-			}
-		}
-		System.out.println(ar);
+//		for(int i=1; i<7; i++) {
+//			int num1 = random.nextInt(6)+1;
+//			ar.add(num1);
+//			for(int k=0; k<i-1;k++) {
+//				
+//				if(num1 == ar.get(k)) {
+//					ar.remove(k);
+//					i--;
+//					break;
+//				}
+//			}
+//		}
+		
+//		System.out.println(ar);
 	}
 }
