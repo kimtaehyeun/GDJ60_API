@@ -1,47 +1,121 @@
 package com.iu.api2.collections.ex1;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.Buffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class StudentDAO {
 
+	Calendar ca = Calendar.getInstance();
+	SimpleDateFormat sd = new SimpleDateFormat("yy년MM월dd일E_hhmm");
+	String date = sd.format(ca.getTime());
+	private String filename;
 	private StringBuffer sb;
 	
-	
 	public StudentDAO() {
-		this.sb = new StringBuffer();
-		sb.append("iu-1-90-60-70-");
-		sb.append("winter-2-86-84-75-");
-		sb.append("suji-3-23-53-23");
-		
 	}
 	ArrayList<StudentDTO> stuArrayList = new ArrayList<>();
+	
 	public ArrayList<StudentDTO> init() {
+		File file;
 		
-		String string = sb.toString();
-		StringTokenizer st = new StringTokenizer(string,"-");
+		boolean backup = true;
+		if(backup==true) {
+		file = new File("C:\\fileTest","test.txt");
+		backup=false;
 		
-		while(st.hasMoreTokens()) {
-			
-			StudentDTO studentDTO = new StudentDTO();
-			
-			studentDTO.setName(st.nextToken());
-			studentDTO.setNum(Integer.parseInt(st.nextToken()));
-			studentDTO.setKor(Integer.parseInt(st.nextToken()));
-			studentDTO.setEng(Integer.parseInt(st.nextToken()));
-			studentDTO.setMath(Integer.parseInt(st.nextToken()));
-			studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
-			studentDTO.setAvg(studentDTO.getTotal()/3.0);
-			
-			
-			stuArrayList.add(studentDTO);
-			
-			
 		}
+		else {
+			stuArrayList.clear();
+		file = new File("C:\\fileTest","date.txt");
+		}
+		
+		try {
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			while(true) {
+				String student = br.readLine();
+				
+				StringTokenizer st = new StringTokenizer(student,"-");
+				while(st.hasMoreTokens()) {
+					
+					StudentDTO studentDTO = new StudentDTO();
+					
+					studentDTO.setName(st.nextToken());
+					studentDTO.setNum(Integer.parseInt(st.nextToken()));
+					studentDTO.setKor(Integer.parseInt(st.nextToken()));
+					studentDTO.setEng(Integer.parseInt(st.nextToken()));
+					studentDTO.setMath(Integer.parseInt(st.nextToken()));
+					studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+					studentDTO.setAvg(studentDTO.getTotal()/3.0);
+					
+					
+					stuArrayList.add(studentDTO);
+					
+					
+				}
+				
+				if(student==null) {
+					break;
+				}
+				
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+//		while(st.hasMoreTokens()) {
+//			
+//			StudentDTO studentDTO = new StudentDTO();
+//			
+//			studentDTO.setName(st.nextToken());
+//			studentDTO.setNum(Integer.parseInt(st.nextToken()));
+//			studentDTO.setKor(Integer.parseInt(st.nextToken()));
+//			studentDTO.setEng(Integer.parseInt(st.nextToken()));
+//			studentDTO.setMath(Integer.parseInt(st.nextToken()));
+//			studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+//			studentDTO.setAvg(studentDTO.getTotal()/3.0);
+//			
+//			
+//			stuArrayList.add(studentDTO);
+//			
+//			
+//		}
 
 		
 		return stuArrayList;
+	}
+	
+	public void studentsbackup() {
+		StudentDTO studentDTO = new StudentDTO();
+		File file = new File("C:\\fileTest",date+".txt");
+		filename = date;
+		try {
+			FileWriter fw = new FileWriter(file,false);
+			for(int i = 0; i<stuArrayList.size(); i++) {
+				fw.write(stuArrayList.get(i).getName()+"-");
+				fw.write(stuArrayList.get(i).getNum()+"-");
+				fw.write(stuArrayList.get(i).getKor()+"-");
+				fw.write(stuArrayList.get(i).getEng()+"-");
+				fw.write(stuArrayList.get(i).getMath()+"\r\n");
+				
+				fw.flush();
+				
+			}
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
 	}
 	public void add(){
 		Scanner sc = new Scanner(System.in);

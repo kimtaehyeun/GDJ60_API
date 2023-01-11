@@ -9,7 +9,9 @@ public class Ex1Main {
 		// 3. 학생 정보 검색 조회(이름)
 		// 4. 학생 정보 추가
 		// 5. 학생 정보 삭제 (이름)
-		// 6. 프로그램 종료
+		// 6. 학생 정보 백업
+		
+		// 7. 프로그램 종료
 		StudentController start = new StudentController();
 		start.Start();
 		

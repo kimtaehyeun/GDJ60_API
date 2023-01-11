@@ -28,17 +28,15 @@ public class StudentController {
 			System.out.println("3. 학생 정보 검색 조회(이름)");
 			System.out.println("4. 학생 정보 추가");
 			System.out.println("5. 학생 정보 삭제 (이름)");
-			System.out.println("6. 프로그램 종료");
+			System.out.println("6. 학생 정보 백업");
+			System.out.println("7. 프로그램 종료");
 			System.out.println("번호를 입력하세요");
 			int num = sc.nextInt();
 			switch (num) {
 			case 1: {
 				students= st.init();
 				System.out.println("1. 학생 정보 초기화");
-				
-				for(int i =0; i<students.size();i++) {
-					System.out.println(students.get(i).getName());
-				}
+
 				break;
 			}
 			case 2: {
@@ -68,6 +66,11 @@ public class StudentController {
 				break;
 			}
 			case 6: {
+				System.out.println("6. 학생 정보 백업");
+				st.studentsbackup();
+				break;
+			}
+			case 7: {
 				System.out.println("6. 프로그램 종료");
 				start = false;
 				break;
