@@ -71,7 +71,7 @@ public class StudentController {
 				break;
 			}
 			case 7: {
-				System.out.println("6. 프로그램 종료");
+				System.out.println("7. 프로그램 종료");
 				start = false;
 				break;
 			}
