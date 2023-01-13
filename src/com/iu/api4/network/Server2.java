@@ -58,8 +58,8 @@ public class Server2 {
 			socket = ss.accept();
 			System.out.println("접속완료");
 
-			//reader
 			while(sw) {
+				//reader
 				is= socket.getInputStream();
 				ir = new InputStreamReader(is);
 				br = new BufferedReader(ir);
@@ -97,8 +97,8 @@ public class Server2 {
 				bw.close();
 				ir.close();
 				ow.close();
-				os.close();
 				is.close();
+				os.close();
 				socket.close();
 				
 			} catch (Exception e) {
