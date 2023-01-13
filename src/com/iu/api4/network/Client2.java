@@ -53,10 +53,13 @@ public class Client2 {
 				br = new BufferedReader(ir);
 				String msg = br.readLine();
 				if(num.equals("1")) {
-					System.out.println("점심 메뉴 : "+msg);
+					System.out.println("전체 : "+msg);
 				}
 				else if(num.equals("2")) {
-					System.out.println("저녁 메뉴 : "+msg);
+					System.out.println("이름입력 : ");
+					String data = sc.next();
+					bw.write(num+"\r\n");
+					bw.flush();
 				}
 				else if(num.equals("3")) {
 					System.out.println("종료");
